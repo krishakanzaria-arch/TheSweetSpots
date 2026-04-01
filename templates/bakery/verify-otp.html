@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify OTP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background: #fff;
+            padding: 30px;
+            width: 360px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        p {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            font-size: 18px;
+            letter-spacing: 5px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background: #9958bc;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #5c237b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Verify OTP</h2>
+    <p>Enter the 6-digit OTP sent to your email</p>
+
+    <form method="post">
+       {% csrf_token %}
+       <input type="text" name="otp" placeholder="Enter OTP" required>
+       <button type="submit">Verify OTP</button>
+       {% if error %}<p>{{ error }}</p>{% endif %}
+    </form>
+</div>
+
+</body>
+</html>

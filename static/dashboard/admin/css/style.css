@@ -1,0 +1,198 @@
+h1 {
+    margin-bottom: 25px;
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+}
+
+.return-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.return-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+.return-header {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.return-status {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-requested {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-approved {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-rejected {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.return-item {
+    background: #f9f9f9;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.return-buttons {
+    margin-top: 15px;
+}
+
+.return-buttons button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: 0.3s ease;
+}
+
+.approve-btn {
+    background: #28a745;
+    color: white;
+}
+
+.approve-btn:hover {
+    background: #218838;
+}
+
+.reject-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.reject-btn:hover {
+    background: #c82333;
+}
+
+/* Page Container */
+.order-detail-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Headings */
+.order-detail-container h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.order-detail-container h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+/* Order Info Section */
+.order-info p {
+    margin: 6px 0;
+    font-size: 15px;
+    color: #555;
+}
+
+.order-info strong {
+    color: #222;
+}
+
+/* Table Styling */
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.order-table thead {
+    background-color: #f4f6f9;
+}
+
+.order-table th {
+    padding: 12px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #555;
+    border-bottom: 2px solid #ddd;
+}
+
+.order-table td {
+    padding: 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.order-table img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Status Dropdown */
+.status-form {
+    margin-top: 20px;
+}
+
+.status-form select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.status-form button {
+    padding: 8px 15px;
+    border-radius: 6px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.status-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Back Button */
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.back-link:hover {
+    color: #000;
+}

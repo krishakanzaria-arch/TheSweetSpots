@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <style>
+            body {
+    background: #f4f6fb;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.return-container {
+    max-width: 700px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 30px 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.return-container h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    font-weight: 600;
+}
+
+.return-item {
+    padding: 15px 0;
+}
+
+.return-item p {
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.return-item input[type="number"],
+.return-item input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.return-item input:focus {
+    border-color: #ff6b6b;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.15);
+}
+
+.return-container hr {
+    border: none;
+    height: 1px;
+    background: #eee;
+    margin: 15px 0;
+}
+
+.return-container button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #ff6b6b, #ff9472);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.return-container button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 107, 107, 0.3);
+}
+        </style>
+    </head>
+    <body>
+<div class="return-container">
+<h3>Return Order #{{ order.id }}</h3>
+
+<form method="POST">
+    {% csrf_token %}
+
+    {% for item in items %}
+        <div class="return-items">
+            <p>{{ item.product.product_name }}</p>
+
+            <input type="number"
+                   name="qty_{{ item.product.id }}"
+                   min="0"
+                   max="{{ item.qty }}"
+                   placeholder="Qty to return">
+
+            <input type="text"
+                   name="reason_{{ item.product.id }}"
+                   placeholder="Reason (optional)">
+        </div>
+        <hr>
+    {% endfor %}
+
+    <button type="submit">Submit Return Request</button>
+</form>
+</div>
+</body>
+</html>

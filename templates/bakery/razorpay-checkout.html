@@ -1,0 +1,50 @@
+<button id="rzp-button" class="btn style-three position-relative z-1 round-10" style="display:none">Pay Now</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+var options = {
+    "key": "{{ razorpay_key }}",
+    "amount": {{ amount }},
+    "currency": "INR",
+    "order_id": "{{ razorpay_order_id }}",
+    "name": "Bakery Shop",
+    "description": "Order Payment",
+
+    "prefill": {
+        "name": "{{ order.user.user.first_name }}",
+        "contact": "{{ order.user.user.mobile_no }}"
+    },
+    
+    "method": {
+        "upi": true
+    },
+
+    "handler": function (response) {
+        if(response.razorpay_payment_id) {
+            window.location.href = "{% url 'payment_success' %}?order_id={{ order.id }}";
+        }
+    },
+
+    "modal": {
+        "ondismiss": function () {
+            window.location.href = "{% url 'payment_cancel' %}?order_id={{ order.id }}";
+        }
+    },
+
+    
+};
+
+var rzp1 = new Razorpay(options);
+
+function openRazorpay(){
+    try{
+        rzp1.open();
+    }catch(e){
+        console.error('Razorpay open error', e);
+    }
+}
+
+window.addEventListener('load', function(){
+    setTimeout(openRazorpay, 250);
+});
+</script>

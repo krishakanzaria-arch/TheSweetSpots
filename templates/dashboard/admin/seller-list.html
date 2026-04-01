@@ -1,0 +1,1057 @@
+{% load static %} <!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from techzaa.in/larkon/admin/seller-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jan 2026 13:37:00 GMT -->
+<head>
+     <!-- Title Meta -->
+     <meta charset="utf-8" />
+     <title>Sellers List | TheSweetSpots</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="A fully responsive premium admin dashboard template" />
+     <meta name="author" content="Techzaa" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+     <!-- App favicon -->
+     <link rel="shortcut icon" href="{% static 'dashboard/admin/images/favicon.png' %}">
+
+     <!-- Vendor css (Require in all Page) -->
+     <link href="{% static 'dashboard/admin/css/vendor.min.css' %}" rel="stylesheet" type="text/css" />
+
+     <!-- Icons css (Require in all Page) -->
+     <link href="{% static 'dashboard/admin/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+
+     <!-- App css (Require in all Page) -->
+     <link href="{% static 'dashboard/admin/css/app.min.css' %}" rel="stylesheet" type="text/css" />
+
+     <!-- Theme Config js (Require in all Page) -->
+     <script src="{% static 'dashboard/admin/js/config.js' %}"></script>
+</head>
+
+<body>
+
+     <!-- START Wrapper -->
+     <div class="wrapper">
+
+          <!-- ========== Topbar Start ========== -->
+          <header class="topbar">
+               <div class="container-fluid">
+                    <div class="navbar-header">
+                         <div class="d-flex align-items-center">
+                              <!-- Menu Toggle Button -->
+                              <div class="topbar-item">
+                                   <button type="button" class="button-toggle-menu me-2">
+                                        <iconify-icon icon="solar:hamburger-menu-broken" class="fs-24 align-middle"></iconify-icon>
+                                   </button>
+                              </div>
+
+                              <!-- Menu Toggle Button -->
+                              <div class="topbar-item">
+                                   <h4 class="fw-bold topbar-button pe-none text-uppercase mb-0">Sellers List</h4>
+                              </div>
+                         </div>
+
+                         <div class="d-flex align-items-center gap-1">
+
+                              <!-- Theme Color (Light/Dark) -->
+                              <div class="topbar-item">
+                                   <button type="button" class="topbar-button" id="light-dark-mode">
+                                        <iconify-icon icon="solar:moon-bold-duotone" class="fs-24 align-middle"></iconify-icon>
+                                   </button>
+                              </div>
+
+                              <!-- Notification -->
+                              
+
+                              <!-- Theme Setting -->
+                              <div class="topbar-item d-none d-md-flex">
+                                   <button type="button" class="topbar-button" id="theme-settings-btn" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+                                        <iconify-icon icon="solar:settings-bold-duotone" class="fs-24 align-middle"></iconify-icon>
+                                   </button>
+                              </div>
+
+                              <!-- Activity -->
+                              
+
+                              <!-- User -->
+                              <div class="dropdown topbar-item">
+                                   <a type="button" class="topbar-button" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="d-flex align-items-center">
+                                             <img class="rounded-circle" width="32" src="{% static 'dashboard/admin/images/users/avatar-1.jpg'  %}" alt="avatar-3">
+                                        </span>
+                                   </a>
+                                   <div class="dropdown-menu dropdown-menu-end">
+                                        <!-- item-->
+                                        <h6 class="dropdown-header">Welcome Admin!</h6>
+                                        <a class="dropdown-item" href="{% url 'dashboard:page' page_name='pages-profile' %}">
+                                             <i class="bx bx-user-circle text-muted fs-18 align-middle me-1"></i><span class="align-middle">Profile</span>
+                                        </a>
+                                        
+                                        <a class="dropdown-item" href="{% url 'dashboard:page' page_name='auth-lock-screen' %}">
+                                             <i class="bx bx-lock text-muted fs-18 align-middle me-1"></i><span class="align-middle">Lock screen</span>
+                                        </a>
+
+                                        <div class="dropdown-divider my-1"></div>
+
+                                        <a class="dropdown-item text-danger" href="{% url 'dashboard:logout' %}">
+                                             <i class="bx bx-log-out fs-18 align-middle me-1"></i><span class="align-middle">Logout</span>
+                                        </a>
+                                   </div>
+                              </div>
+
+                              <!-- App Search-->
+                              
+                         </div>
+                    </div>
+               </div>
+          </header>
+
+          <!-- Activity Timeline -->
+         
+
+          <!-- Right Sidebar (Theme Settings) -->
+          <div>
+               <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-settings-offcanvas">
+                    <div class="d-flex align-items-center bg-primary p-3 offcanvas-header">
+                         <h5 class="text-white m-0">Theme Settings</h5>
+                         <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+
+                    <div class="offcanvas-body p-0">
+                         <div data-simplebar class="h-100">
+                              <div class="p-3 settings-bar">
+
+                                   <div>
+                                        <h5 class="mb-3 font-16 fw-semibold">Color Scheme</h5>
+
+                                        <div class="form-check mb-2">
+                                             <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-color-light" value="light">
+                                             <label class="form-check-label" for="layout-color-light">Light</label>
+                                        </div>
+
+                                        <div class="form-check mb-2">
+                                             <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-color-dark" value="dark">
+                                             <label class="form-check-label" for="layout-color-dark">Dark</label>
+                                        </div>
+                                   </div>
+
+                                   <div>
+                                        <h5 class="my-3 font-16 fw-semibold">Topbar Color</h5>
+
+                                        <div class="form-check mb-2">
+                                             <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-light" value="light">
+                                             <label class="form-check-label" for="topbar-color-light">Light</label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                             <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-dark" value="dark">
+                                             <label class="form-check-label" for="topbar-color-dark">Dark</label>
+                                        </div>
+                                   </div>
+
+
+                                   <div>
+                                        <h5 class="my-3 font-16 fw-semibold">Menu Color</h5>
+
+                                        <div class="form-check mb-2">
+                                             <input class="form-check-input" type="radio" name="data-menu-color" id="leftbar-color-light" value="light">
+                                             <label class="form-check-label" for="leftbar-color-light">
+                                                  Light
+                                             </label>
+                                        </div>
+
+                                        <div class="form-check mb-2">
+                                             <input class="form-check-input" type="radio" name="data-menu-color" id="leftbar-color-dark" value="dark">
+                                             <label class="form-check-label" for="leftbar-color-dark">
+                                                  Dark
+                                             </label>
+                                        </div>
+                                   </div>
+
+                                   <div>
+                                        <h5 class="my-3 font-16 fw-semibold">Sidebar Size</h5>
+
+                                        <div class="form-check mb-2">
+                                             <input class="form-check-input" type="radio" name="data-menu-size" id="leftbar-size-default" value="default">
+                                             <label class="form-check-label" for="leftbar-size-default">
+                                                  Default
+                                             </label>
+                                        </div>
+
+                                        <div class="form-check mb-2">
+                                             <input class="form-check-input" type="radio" name="data-menu-size" id="leftbar-size-small" value="condensed">
+                                             <label class="form-check-label" for="leftbar-size-small">
+                                                  Condensed
+                                             </label>
+                                        </div>
+
+                                        <div class="form-check mb-2">
+                                             <input class="form-check-input" type="radio" name="data-menu-size" id="leftbar-hidden" value="hidden">
+                                             <label class="form-check-label" for="leftbar-hidden">
+                                                  Hidden
+                                             </label>
+                                        </div>
+
+                                        <div class="form-check mb-2">
+                                             <input class="form-check-input" type="radio" name="data-menu-size" id="leftbar-size-small-hover-active" value="sm-hover-active">
+                                             <label class="form-check-label" for="leftbar-size-small-hover-active">
+                                                  Small Hover Active
+                                             </label>
+                                        </div>
+
+                                        <div class="form-check mb-2">
+                                             <input class="form-check-input" type="radio" name="data-menu-size" id="leftbar-size-small-hover" value="sm-hover">
+                                             <label class="form-check-label" for="leftbar-size-small-hover">
+                                                  Small Hover
+                                             </label>
+                                        </div>
+                                   </div>
+
+                              </div>
+                         </div>
+                    </div>
+                    <div class="offcanvas-footer border-top p-3 text-center">
+                         <div class="row">
+                              <div class="col">
+                                   <button type="button" class="btn btn-danger w-100" id="reset-layout">Reset</button>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+          <!-- ========== Topbar End ========== -->
+
+          <!-- ========== App Menu Start ========== -->
+          <div class="main-nav">
+               <!-- Sidebar Logo -->
+               <div class="logo-box">
+                    <a href="{% url 'dashboard:page' page_name='index' %}" class="logo-dark">
+                         <img src="{% static 'dashboard/admin/images/logo.png'  %}" class="logo-sm" alt="logo sm">
+                         <img src="{% static 'dashboard/admin/images/logo.png'  %}" class="logo-lg" alt="logo dark">
+                    </a>
+
+                    <a href="{% url 'dashboard:page' page_name='index' %}" class="logo-light">
+                         <img src="{% static 'dashboard/admin/images/logo.png'  %}" class="logo-sm" alt="logo sm">
+                         <img src="{% static 'dashboard/admin/images/logo.png'  %}" class="logo-lg" alt="logo light">
+                    </a>
+               </div>
+
+               <!-- Menu Toggle Button (sm-hover) -->
+               <button type="button" class="button-sm-hover" aria-label="Show Full Sidebar">
+                    <iconify-icon icon="solar:double-alt-arrow-right-bold-duotone" class="button-sm-hover-icon"></iconify-icon>
+               </button>
+
+               <div class="scrollbar" data-simplebar>
+                    <ul class="navbar-nav" id="navbar-nav">
+
+                         <li class="menu-title">General</li>
+
+                         <li class="nav-item">
+                              <a class="nav-link" href="{% url 'dashboard:page' page_name='index' %}">
+                                   <span class="nav-icon">
+                                        <iconify-icon icon="solar:widget-5-bold-duotone"></iconify-icon>
+                                   </span>
+                                   <span class="nav-text"> Dashboard </span>
+                              </a>
+                         </li>
+
+                         <li class="nav-item">
+                              <a class="nav-link menu-arrow" href="#sidebarProducts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarProducts">
+                                   <span class="nav-icon">
+                                        <iconify-icon icon="solar:t-shirt-bold-duotone"></iconify-icon>
+                                   </span>
+                                   <span class="nav-text"> Products </span>
+                              </a>
+                              <div class="collapse" id="sidebarProducts">
+                                   <ul class="nav sub-navbar-nav">
+                                        <li class="sub-nav-item">
+                                             <a class="sub-nav-link" href="{% url 'dashboard:page' page_name='product-list' %}">List</a>
+                                        </li>
+                                        
+                                        
+                                        <li class="sub-nav-item">
+                                             <a class="sub-nav-link" href="{% url 'dashboard:page' page_name='product-edit' %}">Edit</a>
+                                        </li>
+                                        <li class="sub-nav-item">
+                                             <a class="sub-nav-link" href="{% url 'dashboard:page' page_name='product-add' %}">Create</a>
+                                        </li>
+                                   </ul>
+                              </div>
+                         </li>
+
+                         
+
+                         
+
+                         <li class="nav-item">
+                              <a class="nav-link menu-arrow" href="#sidebarOrders" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarOrders">
+                                   <span class="nav-icon">
+                                        <iconify-icon icon="solar:bag-smile-bold-duotone"></iconify-icon>
+                                   </span>
+                                   <span class="nav-text"> Orders </span>
+                              </a>
+                              <div class="collapse" id="sidebarOrders">
+                                   <ul class="nav sub-navbar-nav">
+
+                                        <li class="sub-nav-item">
+                                             <a class="sub-nav-link" href="{% url 'dashboard:page' page_name='orders-list' %}">List</a>
+                                        </li>
+                                        
+                                        
+                                   </ul>
+                              </div>
+                         </li>  <li class="nav-item">
+                              <a class="nav-link" href="{% url 'dashboard:page' page_name='reports' %}">
+                              <span class="nav-icon">
+                                        <iconify-icon icon="solar:bill-list-bold-duotone"></iconify-icon>
+                              </span>
+                              <span class="nav-text">Reports</span>
+                              </a>
+                         </li>
+
+                         
+
+                         
+
+                         
+
+                         
+
+                         <li class="menu-title mt-2">Users</li>
+
+                         <li class="nav-item">
+                              <a class="nav-link" href="{% url 'dashboard:page' page_name='add-batch' %}">
+                                   <span class="nav-icon">
+                                        <iconify-icon icon="solar:chat-square-like-bold-duotone"></iconify-icon>
+                                   </span>
+                                   <span class="nav-text"> Add Batch </span>
+                              </a>
+                         </li>
+
+                         
+
+                        
+
+                         <li class="nav-item">
+                              <a class="nav-link" href="{% url 'dashboard:page' page_name='customer-list' %}">
+                                   <span class="nav-icon">
+                                        <iconify-icon icon="solar:users-group-two-rounded-bold-duotone"></iconify-icon>
+                                   </span>
+                                   <span class="nav-text"> Customers </span>
+                              </a>
+                              
+                         </li>
+
+                         
+
+                          <li class="menu-title mt-2">Other
+                          </li><li class="nav-item">
+                              <a class="nav-link" href="{% url 'dashboard:page' page_name='return-requests' %}"> <span class="nav-icon">
+                                        <iconify-icon icon="solar:leaf-bold-duotone"></iconify-icon>
+                                   </span>Order Returns
+                              </a>
+                         </li><li class="nav-item">
+                              <a class="nav-link" href="{% url 'dashboard:page' page_name='add-category-subcategory' %}">
+                                   <span class="nav-icon">
+                                        <iconify-icon icon="solar:t-shirt-bold-duotone"></iconify-icon>
+                                   </span>
+                                   <span class="nav-text"> Add Categories </span>
+                              </a>
+                              
+                         </li>
+
+                         <li class="nav-item">
+                              <a class="nav-link menu-arrow" href="#sidebarCoupons" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCoupons">
+                                   <span class="nav-icon">
+                                        <iconify-icon icon="solar:leaf-bold-duotone"></iconify-icon>
+                                   </span>
+                                   <span class="nav-text"> Coupons </span>
+                              </a>
+                              <div class="collapse" id="sidebarCoupons">
+                                   <ul class="nav sub-navbar-nav">
+                                        <li class="sub-nav-item">
+                                             <a class="sub-nav-link" href="{% url 'dashboard:page' page_name='coupons-list' %}">List</a>
+                                        </li>
+                                        <li class="sub-nav-item">
+                                             <a class="sub-nav-link" href="{% url 'dashboard:page' page_name='coupons-add' %}">Add</a>
+                                        </li>
+                                   </ul>
+                              </div>
+                         </li>
+
+                         <li class="nav-item">
+                              <a class="nav-link" href="{% url 'dashboard:page' page_name='pages-review' %}">
+                                   <span class="nav-icon">
+                                        <iconify-icon icon="solar:chat-square-like-bold-duotone"></iconify-icon>
+                                   </span>
+                                   <span class="nav-text"> Reviews </span>
+                              </a>
+                         </li>
+
+                         
+
+                         <li class="menu-title mt-2">Support</li>
+
+                         
+
+                         <li class="nav-item">
+                              <a class="nav-link" href="{% url 'dashboard:page' page_name='pages-faqs' %}">
+                                   <span class="nav-icon">
+                                        <iconify-icon icon="solar:question-circle-bold-duotone"></iconify-icon>
+                                   </span>
+                                   <span class="nav-text"> FAQs </span>
+                              </a>
+                         </li>
+
+                         <li class="nav-item">
+                              <a class="nav-link" href="{% url 'dashboard:page' page_name='privacy-policy' %}">
+                                   <span class="nav-icon">
+                                        <iconify-icon icon="solar:document-text-bold-duotone"></iconify-icon>
+                                   </span>
+                                   <span class="nav-text"> Privacy Policy </span>
+                              </a>
+                         </li>
+
+                         <li class="menu-title mt-2">Access</li>
+
+                         
+
+                         <li class="nav-item">
+                              <a class="nav-link menu-arrow" href="#sidebarAuthentication" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuthentication">
+                                   <span class="nav-icon">
+                                        <iconify-icon icon="solar:lock-keyhole-bold-duotone"></iconify-icon>
+                                   </span>
+                                   <span class="nav-text"> Authentication </span>
+                              </a>
+                              <div class="collapse" id="sidebarAuthentication">
+                                   <ul class="nav sub-navbar-nav">
+                                        <li class="sub-nav-item">
+                                             <a class="sub-nav-link" href="{% url 'dashboard:page' page_name='auth-signin' %}">Sign In</a>
+                                        </li>                              
+                                        <li class="sub-nav-item">
+                                             <a class="sub-nav-link" href="{% url 'dashboard:page' page_name='auth-signup' %}">Sign Up</a>
+                                        </li>                           
+                                        <li class="sub-nav-item">
+                                             <a class="sub-nav-link" href="{% url 'dashboard:page' page_name='auth-password' %}">Reset Password</a>
+                                        </li>                              
+                                        <li class="sub-nav-item">
+                                             <a class="sub-nav-link" href="{% url 'dashboard:page' page_name='auth-lock-screen' %}">Lock Screen</a>
+                                        </li>                          
+                                   </ul>
+                              </div>
+                         </li>
+
+                         
+
+                         
+
+                         
+                    </ul>
+               </div>
+          </div>
+          <!-- ========== App Menu End ========== -->
+
+          <!-- ==================================================== -->
+          <!-- Start right Content here -->
+          <!-- ==================================================== -->
+          <div class="page-content">
+
+               <div class="container-xxl">
+
+                    <div class="row">
+                         <div class="col-xl-3 col-md-6">
+                              <div class="card">
+                                   <div class="card-body">
+                                        <div class="position-relative bg-light p-2 rounded text-center">
+                                             <img src="{% static 'dashboard/admin/images/seller/zara.svg'  %}" alt="" class="avatar-xxl">
+                                             <div class="position-absolute top-0 end-0 m-1">
+                                                  <div class="dropdown">
+                                                       <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <iconify-icon icon="iconamoon:menu-kebab-vertical-circle-duotone" class="fs-20 align-middle text-muted"></iconify-icon>
+                                                       </a>
+                                                       <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Download</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Export</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Import</a>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="d-flex flex-wrap justify-content-between my-3">
+                                             <div>
+                                                  <h4 class="mb-1">ZARA International<span class="text-muted fs-13 ms-1">(Fashion) </span></h4>
+                                                  <div>
+                                                       <a href="#!" class="link-primary fs-16 fw-medium">www.zarafashion.co</a>
+                                                  </div>
+                                             </div>
+                                             <div>
+                                                  <p class="mb-0"><span class="badge bg-light text-dark fs-12 me-1"><i class="bx bxs-star align-text-top fs-14 text-warning me-1"></i> 4.5</span>3.5k</p>
+                                             </div>
+                                        </div>
+                                        <div class="">
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:point-on-map-bold-duotone" class="fs-18 text-primary"></iconify-icon>4604 , Philli Lane Kiowa IN 47404</p>
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:letter-bold-duotone" class="fs-18 text-primary"></iconify-icon>zarafashionworld@dayrep.com</p>
+                                             <p class="d-flex align-items-center gap-2 mb-0"><iconify-icon icon="solar:outgoing-call-rounded-bold-duotone" class="fs-20 text-primary"></iconify-icon>+243 812-801-9335</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-3 mb-1">
+                                             <p class="mb-0 fs-15 fw-medium text-dark">Fashion</p>
+                                             <div>
+                                                  <p class="mb-0 fs-15 fw-medium text-dark">$200k <span class="ms-1"><iconify-icon icon="solar:course-up-outline" class="text-success"></iconify-icon></span></p>
+                                             </div>
+                                        </div>
+                                        <div class="progress progress-soft progress-md">
+                                             <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="p-2 pb-0 mx-n3 mt-2">
+                                             <div class="row text-center g-2">
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">865</h5>
+                                                       <p class="text-muted mb-0">Item Stock</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">+4.5k</h5>
+                                                       <p class="text-muted mb-0">Sells</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4">
+                                                       <h5 class="mb-1">+2k</h5>
+                                                       <p class="text-muted mb-0">Happy Client</p>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="card-footer border-top gap-1 hstack">
+                                        <a href="#!" class="btn btn-primary w-100">View Profile</a>
+                                        <a href="#!" class="btn btn-light w-100">Edit Profile</a>
+                                        <a href="#!" class="btn btn-soft-danger d-inline-flex align-items-center justify-content-center rounded-circle avatar-sm"><i class="bx bx-heart fs-4 align-middle"></i></a>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-xl-3 col-md-6">
+                              <div class="card">
+                                   <div class="card-body">
+                                        <div class="position-relative bg-light p-2 rounded text-center">
+                                             <img src="{% static 'dashboard/admin/images/seller/rolex.svg'  %}" alt="" class="avatar-xxl">
+                                             <div class="position-absolute top-0 end-0 m-1">
+                                                  <div class="dropdown">
+                                                       <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <iconify-icon icon="iconamoon:menu-kebab-vertical-circle-duotone" class="fs-20 align-middle text-muted"></iconify-icon>
+                                                       </a>
+                                                       <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Download</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Export</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Import</a>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="d-flex flex-wrap justify-content-between my-3">
+                                             <div>
+                                                  <h4 class="mb-1">Rolex Watches<span class="text-muted fs-13 ms-1">(Watch) </span></h4>
+                                                  <div>
+                                                       <a href="#!" class="link-primary fs-16 fw-medium">www.rolexwatch.co</a>
+                                                  </div>
+                                             </div>
+                                             <div>
+                                                  <p class="mb-0"><span class="badge bg-light text-dark fs-12 me-1"><i class="bx bxs-star align-text-top fs-14 text-warning me-1"></i> 4.5</span>1.2k</p>
+                                             </div>
+                                        </div>
+                                        <div class="">
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:point-on-map-bold-duotone" class="fs-18 text-primary"></iconify-icon>1678  Avenue Milwaukee, WI 53202</p>
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:letter-bold-duotone" class="fs-18 text-primary"></iconify-icon>rolexwatches@dayrep.com</p>
+                                             <p class="d-flex align-items-center gap-2 mb-0"><iconify-icon icon="solar:outgoing-call-rounded-bold-duotone" class="fs-20 text-primary"></iconify-icon>+243 262-223-1464</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-3 mb-1">
+                                             <p class="mb-0 fs-15 fw-medium text-dark">Watches</p>
+                                             <div>
+                                                  <p class="mb-0 fs-15 fw-medium text-dark">$349k <span class="ms-1"><iconify-icon icon="solar:course-up-outline" class="text-success"></iconify-icon></span></p>
+                                             </div>
+                                        </div>
+                                        <div class="progress progress-soft progress-md">
+                                             <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="p-2 pb-0 mx-n3 mt-2">
+                                             <div class="row text-center g-2">
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">261</h5>
+                                                       <p class="text-muted mb-0">Item Stock</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">+2.9k</h5>
+                                                       <p class="text-muted mb-0">Sells</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4">
+                                                       <h5 class="mb-1">+1.4k</h5>
+                                                       <p class="text-muted mb-0">Happy Client</p>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="card-footer border-top gap-1 hstack">
+                                        <a href="#!" class="btn btn-primary w-100">View Profile</a>
+                                        <a href="#!" class="btn btn-light w-100">Edit Profile</a>
+                                        <a href="#!" class="btn btn-soft-danger d-inline-flex align-items-center justify-content-center rounded-circle avatar-sm"><i class="bx bx-heart fs-4 align-middle"></i></a>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-xl-3 col-md-6">
+                              <div class="card">
+                                   <div class="card-body">
+                                        <div class="position-relative bg-light p-2 rounded text-center">
+                                             <img src="{% static 'dashboard/admin/images/seller/dyson.svg'  %}" alt="" class="avatar-xxl">
+                                             <div class="position-absolute top-0 end-0 m-1">
+                                                  <div class="dropdown">
+                                                       <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <iconify-icon icon="iconamoon:menu-kebab-vertical-circle-duotone" class="fs-20 align-middle text-muted"></iconify-icon>
+                                                       </a>
+                                                       <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Download</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Export</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Import</a>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="d-flex flex-wrap justify-content-between my-3">
+                                             <div>
+                                                  <h4 class="mb-1">Dyson Machinery<span class="text-muted fs-13 ms-1">(Electronics) </span></h4>
+                                                  <div>
+                                                       <a href="#!" class="link-primary fs-16 fw-medium">www.dysonmachine.co</a>
+                                                  </div>
+                                             </div>
+                                             <div>
+                                                  <p class="mb-0"><span class="badge bg-light text-dark fs-12 me-1"><i class="bx bxs-star align-text-top fs-14 text-warning me-1"></i> 4.1</span>3.7k</p>
+                                             </div>
+                                        </div>
+                                        <div class="">
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:point-on-map-bold-duotone" class="fs-18 text-primary"></iconify-icon>23 Cubbine Road GHOOLI WA 6426</p>
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:letter-bold-duotone" class="fs-18 text-primary"></iconify-icon>dysonmachine@dayrep.com</p>
+                                             <p class="d-flex align-items-center gap-2 mb-0"><iconify-icon icon="solar:outgoing-call-rounded-bold-duotone" class="fs-20 text-primary"></iconify-icon>+81(08) 9059 8047</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-3 mb-1">
+                                             <p class="mb-0 fs-15 fw-medium text-dark">Electronics</p>
+                                             <div>
+                                                  <p class="mb-0 fs-15 fw-medium text-dark">$545k <span class="ms-1"><iconify-icon icon="solar:course-up-outline" class="text-success"></iconify-icon></span></p>
+                                             </div>
+                                        </div>
+                                        <div class="progress progress-soft progress-md">
+                                             <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 90%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="p-2 pb-0 mx-n3 mt-2">
+                                             <div class="row text-center g-2">
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">781</h5>
+                                                       <p class="text-muted mb-0">Item Stock</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">+5.3k</h5>
+                                                       <p class="text-muted mb-0">Sells</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4">
+                                                       <h5 class="mb-1">+3.1k</h5>
+                                                       <p class="text-muted mb-0">Happy Client</p>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="card-footer border-top gap-1 hstack">
+                                        <a href="#!" class="btn btn-primary w-100">View Profile</a>
+                                        <a href="#!" class="btn btn-light w-100">Edit Profile</a>
+                                        <a href="#!" class="btn btn-soft-danger d-inline-flex align-items-center justify-content-center rounded-circle avatar-sm"><i class="bx bx-heart fs-4 align-middle"></i></a>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-xl-3 col-md-6">
+                              <div class="card">
+                                   <div class="card-body">
+                                        <div class="position-relative bg-light p-2 rounded text-center">
+                                             <img src="{% static 'dashboard/admin/images/seller/gopro.svg'  %}" alt="" class="avatar-xxl">
+                                             <div class="position-absolute top-0 end-0 m-1">
+                                                  <div class="dropdown">
+                                                       <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <iconify-icon icon="iconamoon:menu-kebab-vertical-circle-duotone" class="fs-20 align-middle text-muted"></iconify-icon>
+                                                       </a>
+                                                       <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Download</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Export</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Import</a>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="d-flex flex-wrap justify-content-between my-3">
+                                             <div>
+                                                  <h4 class="mb-1">GoPro Camera<span class="text-muted fs-13 ms-1">(Electronics) </span></h4>
+                                                  <div>
+                                                       <a href="#!" class="link-primary fs-16 fw-medium">www.goprocamera.co</a>
+                                                  </div>
+                                             </div>
+                                             <div>
+                                                  <p class="mb-0"><span class="badge bg-light text-dark fs-12 me-1"><i class="bx bxs-star align-text-top fs-14 text-warning me-1"></i> 4.3</span>7.2k</p>
+                                             </div>
+                                        </div>
+                                        <div class="">
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:point-on-map-bold-duotone" class="fs-18 text-primary"></iconify-icon>5 Gaffney Street MIDDLE PARK VIC 3206</p>
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:letter-bold-duotone" class="fs-18 text-primary"></iconify-icon>goprocamera@dayrep.com</p>
+                                             <p class="d-flex align-items-center gap-2 mb-0"><iconify-icon icon="solar:outgoing-call-rounded-bold-duotone" class="fs-20 text-primary"></iconify-icon>+81(08) 6727 4227</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-3 mb-1">
+                                             <p class="mb-0 fs-15 fw-medium text-dark">Camera</p>
+                                             <div>
+                                                  <p class="mb-0 fs-15 fw-medium text-dark">$465k <span class="ms-1"><iconify-icon icon="solar:course-up-outline" class="text-success"></iconify-icon></span></p>
+                                             </div>
+                                        </div>
+                                        <div class="progress progress-soft progress-md">
+                                             <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="p-2 pb-0 mx-n3 mt-2">
+                                             <div class="row text-center g-2">
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">890</h5>
+                                                       <p class="text-muted mb-0">Item Stock</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">+10.6k</h5>
+                                                       <p class="text-muted mb-0">Sells</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4">
+                                                       <h5 class="mb-1">+6.3k</h5>
+                                                       <p class="text-muted mb-0">Happy Client</p>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="card-footer border-top gap-1 hstack">
+                                        <a href="#!" class="btn btn-primary w-100">View Profile</a>
+                                        <a href="#!" class="btn btn-light w-100">Edit Profile</a>
+                                        <a href="#!" class="btn btn-soft-danger d-inline-flex align-items-center justify-content-center rounded-circle avatar-sm"><i class="bx bx-heart fs-4 align-middle"></i></a>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-xl-3 col-md-6">
+                              <div class="card">
+                                   <div class="card-body">
+                                        <div class="position-relative bg-light p-2 rounded text-center">
+                                             <img src="{% static 'dashboard/admin/images/seller/h%26m.svg'  %}" alt="" class="avatar-xxl">
+                                             <div class="position-absolute top-0 end-0 m-1">
+                                                  <div class="dropdown">
+                                                       <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <iconify-icon icon="iconamoon:menu-kebab-vertical-circle-duotone" class="fs-20 align-middle text-muted"></iconify-icon>
+                                                       </a>
+                                                       <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Download</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Export</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Import</a>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="d-flex flex-wrap justify-content-between my-3">
+                                             <div>
+                                                  <h4 class="mb-1">H&M<span class="text-muted fs-13 ms-1">(Fashion) </span></h4>
+                                                  <div>
+                                                       <a href="#!" class="link-primary fs-16 fw-medium">www.h&mfashion.co</a>
+                                                  </div>
+                                             </div>
+                                             <div>
+                                                  <p class="mb-0"><span class="badge bg-light text-dark fs-12 me-1"><i class="bx bxs-star align-text-top fs-14 text-warning me-1"></i> 4.3</span>15.3k</p>
+                                             </div>
+                                        </div>
+                                        <div class="">
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:point-on-map-bold-duotone" class="fs-18 text-primary"></iconify-icon>1697 Bay Street Toronto, ON M5J 2R8</p>
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:letter-bold-duotone" class="fs-18 text-primary"></iconify-icon>h&mfashion@dayrep.com</p>
+                                             <p class="d-flex align-items-center gap-2 mb-0"><iconify-icon icon="solar:outgoing-call-rounded-bold-duotone" class="fs-20 text-primary"></iconify-icon>+81(07) 4049 2261</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-3 mb-1">
+                                             <p class="mb-0 fs-15 fw-medium text-dark">Fashion</p>
+                                             <div>
+                                                  <p class="mb-0 fs-15 fw-medium text-dark">$800k <span class="ms-1"><iconify-icon icon="solar:course-up-outline" class="text-success"></iconify-icon></span></p>
+                                             </div>
+                                        </div>
+                                        <div class="progress progress-soft progress-md">
+                                             <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 90%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="p-2 pb-0 mx-n3 mt-2">
+                                             <div class="row text-center g-2">
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">1309</h5>
+                                                       <p class="text-muted mb-0">Item Stock</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">+21.6k</h5>
+                                                       <p class="text-muted mb-0">Sells</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4">
+                                                       <h5 class="mb-1">+8.1k</h5>
+                                                       <p class="text-muted mb-0">Happy Client</p>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="card-footer border-top gap-1 hstack">
+                                        <a href="#!" class="btn btn-primary w-100">View Profile</a>
+                                        <a href="#!" class="btn btn-light w-100">Edit Profile</a>
+                                        <a href="#!" class="btn btn-soft-danger d-inline-flex align-items-center justify-content-center rounded-circle avatar-sm"><i class="bx bx-heart fs-4 align-middle"></i></a>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-xl-3 col-md-6">
+                              <div class="card">
+                                   <div class="card-body">
+                                        <div class="position-relative bg-light p-2 rounded text-center">
+                                             <img src="{% static 'dashboard/admin/images/seller/huawei.svg'  %}" alt="" class="avatar-xxl">
+                                             <div class="position-absolute top-0 end-0 m-1">
+                                                  <div class="dropdown">
+                                                       <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <iconify-icon icon="iconamoon:menu-kebab-vertical-circle-duotone" class="fs-20 align-middle text-muted"></iconify-icon>
+                                                       </a>
+                                                       <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Download</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Export</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Import</a>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="d-flex flex-wrap justify-content-between my-3">
+                                             <div>
+                                                  <h4 class="mb-1">Huawei Phone<span class="text-muted fs-13 ms-1">(Electronics) </span></h4>
+                                                  <div>
+                                                       <a href="#!" class="link-primary fs-16 fw-medium">www.huaweiphone.co</a>
+                                                  </div>
+                                             </div>
+                                             <div>
+                                                  <p class="mb-0"><span class="badge bg-light text-dark fs-12 me-1"><i class="bx bxs-star align-text-top fs-14 text-warning me-1"></i> 4.1</span>8.2k</p>
+                                             </div>
+                                        </div>
+                                        <div class="">
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:point-on-map-bold-duotone" class="fs-18 text-primary"></iconify-icon>2182 Blanshard Victoria, BC V8W 2H9</p>
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:letter-bold-duotone" class="fs-18 text-primary"></iconify-icon>huaweiphone@dayrep.com</p>
+                                             <p class="d-flex align-items-center gap-2 mb-0"><iconify-icon icon="solar:outgoing-call-rounded-bold-duotone" class="fs-20 text-primary"></iconify-icon>+81(07) 250-356-8142</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-3 mb-1">
+                                             <p class="mb-0 fs-15 fw-medium text-dark">Phone</p>
+                                             <div>
+                                                  <p class="mb-0 fs-15 fw-medium text-dark">$379k <span class="ms-1"><iconify-icon icon="solar:course-up-outline" class="text-success"></iconify-icon></span></p>
+                                             </div>
+                                        </div>
+                                        <div class="progress progress-soft progress-md">
+                                             <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="p-2 pb-0 mx-n3 mt-2">
+                                             <div class="row text-center g-2">
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">356</h5>
+                                                       <p class="text-muted mb-0">Item Stock</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">+4.0k</h5>
+                                                       <p class="text-muted mb-0">Sells</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4">
+                                                       <h5 class="mb-1">+6.3k</h5>
+                                                       <p class="text-muted mb-0">Happy Client</p>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="card-footer border-top gap-1 hstack">
+                                        <a href="#!" class="btn btn-primary w-100">View Profile</a>
+                                        <a href="#!" class="btn btn-light w-100">Edit Profile</a>
+                                        <a href="#!" class="btn btn-soft-danger d-inline-flex align-items-center justify-content-center rounded-circle avatar-sm"><i class="bx bx-heart fs-4 align-middle"></i></a>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-xl-3 col-md-6">
+                              <div class="card">
+                                   <div class="card-body">
+                                        <div class="position-relative bg-light p-2 rounded text-center">
+                                             <img src="{% static 'dashboard/admin/images/seller/nike.svg'  %}" alt="" class="avatar-xxl">
+                                             <div class="position-absolute top-0 end-0 m-1">
+                                                  <div class="dropdown">
+                                                       <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <iconify-icon icon="iconamoon:menu-kebab-vertical-circle-duotone" class="fs-20 align-middle text-muted"></iconify-icon>
+                                                       </a>
+                                                       <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Download</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Export</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Import</a>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="d-flex flex-wrap justify-content-between my-3">
+                                             <div>
+                                                  <h4 class="mb-1">Nike Clothings<span class="text-muted fs-13 ms-1">(Fashion) </span></h4>
+                                                  <div>
+                                                       <a href="#!" class="link-primary fs-16 fw-medium">www.nikebrand.co</a>
+                                                  </div>
+                                             </div>
+                                             <div>
+                                                  <p class="mb-0"><span class="badge bg-light text-dark fs-12 me-1"><i class="bx bxs-star align-text-top fs-14 text-warning me-1"></i> 4.5</span>18.9k</p>
+                                             </div>
+                                        </div>
+                                        <div class="">
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:point-on-map-bold-duotone" class="fs-18 text-primary"></iconify-icon>2113 Eglinton Avenue Toronto 1A6</p>
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:letter-bold-duotone" class="fs-18 text-primary"></iconify-icon>nikefashion@dayrep.com</p>
+                                             <p class="d-flex align-items-center gap-2 mb-0"><iconify-icon icon="solar:outgoing-call-rounded-bold-duotone" class="fs-20 text-primary"></iconify-icon>+81(07) 647-405-3676</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-3 mb-1">
+                                             <p class="mb-0 fs-15 fw-medium text-dark">Clothings</p>
+                                             <div>
+                                                  <p class="mb-0 fs-15 fw-medium text-dark">$890k <span class="ms-1"><iconify-icon icon="solar:course-up-outline" class="text-success"></iconify-icon></span></p>
+                                             </div>
+                                        </div>
+                                        <div class="progress progress-soft progress-md">
+                                             <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 70%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="p-2 pb-0 mx-n3 mt-2">
+                                             <div class="row text-center g-2">
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">12k</h5>
+                                                       <p class="text-muted mb-0">Item Stock</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">+19.0k</h5>
+                                                       <p class="text-muted mb-0">Sells</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4">
+                                                       <h5 class="mb-1">+16.0k</h5>
+                                                       <p class="text-muted mb-0">Happy Client</p>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="card-footer border-top gap-1 hstack">
+                                        <a href="#!" class="btn btn-primary w-100">View Profile</a>
+                                        <a href="#!" class="btn btn-light w-100">Edit Profile</a>
+                                        <a href="#!" class="btn btn-soft-danger d-inline-flex align-items-center justify-content-center rounded-circle avatar-sm"><i class="bx bx-heart fs-4 align-middle"></i></a>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-xl-3 col-md-6">
+                              <div class="card">
+                                   <div class="card-body">
+                                        <div class="position-relative bg-light p-2 rounded text-center">
+                                             <img src="{% static 'dashboard/admin/images/seller/thenorthface.svg'  %}" alt="" class="avatar-xxl">
+                                             <div class="position-absolute top-0 end-0 m-1">
+                                                  <div class="dropdown">
+                                                       <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <iconify-icon icon="iconamoon:menu-kebab-vertical-circle-duotone" class="fs-20 align-middle text-muted"></iconify-icon>
+                                                       </a>
+                                                       <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Download</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Export</a>
+                                                            <!-- item-->
+                                                            <a href="javascript:void(0);" class="dropdown-item">Import</a>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="d-flex flex-wrap justify-content-between my-3">
+                                             <div>
+                                                  <h4 class="mb-1">The North Face<span class="text-muted fs-13 ms-1">(Fashion) </span></h4>
+                                                  <div>
+                                                       <a href="#!" class="link-primary fs-16 fw-medium">www.northface.co</a>
+                                                  </div>
+                                             </div>
+                                             <div>
+                                                  <p class="mb-0"><span class="badge bg-light text-dark fs-12 me-1"><i class="bx bxs-star align-text-top fs-14 text-warning me-1"></i> 4.4</span>12.7k</p>
+                                             </div>
+                                        </div>
+                                        <div class="">
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:point-on-map-bold-duotone" class="fs-18 text-primary"></iconify-icon>1377 49th Avenue Clyde River,0E0</p>
+                                             <p class="d-flex align-items-center gap-2 mb-1"><iconify-icon icon="solar:letter-bold-duotone" class="fs-18 text-primary"></iconify-icon>thenorthface@dayrep.com</p>
+                                             <p class="d-flex align-items-center gap-2 mb-0"><iconify-icon icon="solar:outgoing-call-rounded-bold-duotone" class="fs-20 text-primary"></iconify-icon>+81(07) 867-924-6639</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-3 mb-1">
+                                             <p class="mb-0 fs-15 fw-medium text-dark">Clothings</p>
+                                             <div>
+                                                  <p class="mb-0 fs-15 fw-medium text-dark">$457k <span class="ms-1"><iconify-icon icon="solar:course-up-outline" class="text-success"></iconify-icon></span></p>
+                                             </div>
+                                        </div>
+                                        <div class="progress progress-soft progress-md">
+                                             <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 30%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="p-2 pb-0 mx-n3 mt-2">
+                                             <div class="row text-center g-2">
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">1.6k</h5>
+                                                       <p class="text-muted mb-0">Item Stock</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4 border-end">
+                                                       <h5 class="mb-1">+13.9k</h5>
+                                                       <p class="text-muted mb-0">Sells</p>
+                                                  </div>
+                                                  <div class="col-lg-4 col-4">
+                                                       <h5 class="mb-1">+2.1k</h5>
+                                                       <p class="text-muted mb-0">Happy Client</p>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="card-footer border-top gap-1 hstack">
+                                        <a href="#!" class="btn btn-primary w-100">View Profile</a>
+                                        <a href="#!" class="btn btn-light w-100">Edit Profile</a>
+                                        <a href="#!" class="btn btn-soft-danger d-inline-flex align-items-center justify-content-center rounded-circle avatar-sm"><i class="bx bx-heart fs-4 align-middle"></i></a>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+
+               </div>
+
+               <!-- ========== Footer Start ========== -->
+               <footer class="footer">
+                   <div class="container-fluid">
+                       <div class="row">
+                           <div class="col-12 text-center">
+                               <script>document.write(new Date().getFullYear())</script> &copy; thesweetspots. Crafted by<iconify-icon icon="iconamoon:heart-duotone" class="fs-18 align-middle text-danger"></iconify-icon> <a
+                                   href="https://1.envato.market/techzaa" class="fw-bold footer-text" target="_blank"> TSS </a>
+                           </div>
+                       </div>
+                   </div>
+               </footer>
+               <!-- ========== Footer End ========== -->
+
+          </div>
+          <!-- ==================================================== -->
+          <!-- End Page Content -->
+          <!-- ==================================================== -->
+
+     </div>
+     <!-- END Wrapper -->
+
+     <!-- Vendor Javascript (Require in all Page) -->
+     <script src="{% static 'dashboard/admin/js/vendor.js' %}"></script>
+
+     <!-- App Javascript (Require in all Page) -->
+     <script src="{% static 'dashboard/admin/js/app.js' %}"></script>
+
+</body>
+
+
+<!-- Mirrored from techzaa.in/larkon/admin/seller-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jan 2026 13:37:02 GMT -->
+</html>

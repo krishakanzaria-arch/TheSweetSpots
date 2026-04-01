@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="review-card">
+<h3>Write a Review</h3>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>Rating</label>
+    <select name="rating" required>
+        <option value="5">★★★★★</option>
+        <option value="4">★★★★</option>
+        <option value="3">★★★</option>
+        <option value="2">★★</option>
+        <option value="1">★</option>
+    </select>
+
+    <br><br>
+
+    <textarea name="comment" placeholder="Write your feedback..." required></textarea>
+
+    <br><br>
+
+    <button type="submit">Submit Review</button>
+</form>
+</div>
+</body>
+</html>
