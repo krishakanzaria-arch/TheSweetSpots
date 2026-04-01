@@ -23,12 +23,6 @@ A modern cake ordering website that allows users to customize cakes with a **rea
 
 ---
 
-## 📸 Screenshots
-
-![Screenshot 2026-03-06 151903][cc.png]
-
----
-
 ## 💡 How it works
 
 Users can select cake options from dropdowns, and the 3D model updates instantly using Three.js rendering.
