@@ -25,7 +25,7 @@ A modern cake ordering website that allows users to customize cakes with a **rea
 
 ## 📸 Screenshots
 
-(Add your project screenshots here)
+![Screenshot 2026-03-06 151903][cc.png]
 
 ---
 
