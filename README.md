@@ -16,6 +16,9 @@ A modern cake ordering website that allows users to customize cakes with a **rea
 
 ## 🛠️ Tech Stack
 
+- Python
+- Django framework
+- MySQL
 - HTML
 - CSS
 - JavaScript
